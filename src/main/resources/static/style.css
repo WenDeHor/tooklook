@@ -1,0 +1,12 @@
+a {
+    background: none;
+    border: 0;
+    clear: both;
+    color: #838E95;
+    display: block;
+    font-size: 14px;
+    font-weight: 400;
+    padding: .25rem 1.5rem;
+    text-align: inherit;
+    white-space: nowrap;
+    width: 100%; }
