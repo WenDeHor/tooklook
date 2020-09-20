@@ -6,7 +6,12 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Optional;
+
 @Repository
 public interface UserRepository extends JpaRepository<User, Integer> {
-    User findByUsername(String username);
+    User findByLogin(String username);
+    User findByEmail(String email);
+
+    Optional<User> findOneByLogin(String login);
 }

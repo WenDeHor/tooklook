@@ -23,60 +23,56 @@
 
 </head>
 
-<body>
-<!--<#if error??>-->
-<!--<div class="alert alert-danger" role="alert">Логин или пароль введены неверно</div>-->
-<!--</#if>-->
 <header th:insert="blocks/hederMine::header"></header>
 <br>
-
 <section class="jumbotron " style="background-color: rgba(196,246,255,0.34)">
     <h2>
-        <p class="font-weight-bold text-uppercase text-center">LOGIN TO THE PAGE</p>
+        <p class="font-weight-bold text-uppercase text-center">REGISTRATION PAGE</p>
     </h2>
 
     <h4>
         <p class="text-center">To register, please enter your email last name and first name. It is allowed to register
-            under pseudonyms. The password must contain letters and numbers. </p>
+            under pseudonyms.
+            The password must contain letters and numbers. </p>
     </h4>
 </section>
-
+<body>
 
 <div class="row">
     <div class="alert col-md-12 bg-light" style="background-color: bisque">
         <div class="nav justify-content-center">
-            <div class="col-md-6">
-                <!--error-->
-                <div class="row col-md-12">
-                    <div class="col-md-12">
-                        <div th:if="${param.error}">
-                            <div class="alert alert-danger" role="alert"> Invalid username or password.</div>
-                        </div>
-                    </div>
-                </div>
+            <!--            <div class="col-md-6">-->
+
+
+            <form method="post" action="/signUp">
+                <label for="login">Login
+                    <input class="form-control" id="login" placeholder="Enter login" name="login">
+                </label>
                 <br>
-                <form>
-
-                    <label for="email">Email address</label>
-                    <input class="form-control" id="email" placeholder="Enter email">
-                    <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone
-                        else.</small>
-
-                    <label for="password">Password</label>
-                    <input class="form-control" id="password"
-                           placeholder="Password">
-
-                    <label for="remember-me">
-                        <input type="checkbox" id="remember-me" name="remember-me">Remember me</label>
-                    <input type="submit" value="Login">
-
-                </form>
-            </div>
-
-
+                <label for="email">Email
+                    <input class="form-control" type="text" id="email" placeholder="Enter email" name="email">
+                </label>
+                <br>
+                <label for="password">Password
+                    <input class="form-control" type="password" id="password" placeholder="Enter password" name="password">
+                </label>
+                <br>
+                <label for="first-name">First Name
+                    <input class="form-control" id="first-name" placeholder="Enter first name" name="firstName">
+                </label>
+                <br>
+                <label for="last-name">Last Name
+                    <input class="form-control" id="last-name" placeholder="Enter last name" name="lastName">
+                </label>
+                <br>
+                <label for="remember-me">
+                    <input type="checkbox" id="remember-me" name="remember-me">remember me</label>
+                <input type="submit" value="SignUp">
+                <br>
+            </form>
+            <!--            </div>-->
         </div>
     </div>
 </div>
 </body>
-<footer th:insert="blocks/footerFirst::footer"></footer>
 </html>

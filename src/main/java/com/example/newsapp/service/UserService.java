@@ -1,24 +1,12 @@
 package com.example.newsapp.service;
 
 import com.example.newsapp.models.User;
-
 import com.example.newsapp.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.CacheEvict;
-import org.springframework.cache.annotation.Cacheable;
-import org.springframework.context.annotation.Scope;
-import org.springframework.context.annotation.ScopedProxyMode;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
-
-import java.util.List;
-
-import static com.example.newsapp.util.ValidationUtil.checkNotFound;
-import static com.example.newsapp.util.ValidationUtil.checkNotFoundWithId;
 
 @Service
 public class UserService implements UserDetailsService {
@@ -32,7 +20,7 @@ public class UserService implements UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return repository.findByUsername(username);
+        return (UserDetails) repository.findByLogin(username);
     }
 
 
